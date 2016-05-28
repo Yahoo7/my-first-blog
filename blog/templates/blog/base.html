@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Django Girls blog</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Oranienbaum&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    </head>
+    <body>
+    <div class="page-header">
+      {% if user.is_authenticated %}
+        <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+    {% endif %}
+      <div>
+        <h1 align="center"><a href="/">Dirlewanger</a></h1>
+        <p class="fig"><img src="http://ih0.redbubble.net/image.29319925.0878/sticker,375x360.u3.png" width="131" height="126"></p>
+  </div>
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
